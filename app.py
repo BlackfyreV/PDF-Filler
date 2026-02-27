@@ -266,7 +266,11 @@ def fill_form_endpoint():
     data = request.get_json(silent=True)
     if not data:
         return jsonify({"error": "Request body must be JSON"}), 400
-
+        
+for k, v in list(data.items()):
+    if v is None:
+        data[k] = ""
+    
     try:
         pdf_bytes, form_type = fill_form(data)
     except FileNotFoundError as e:
@@ -278,7 +282,7 @@ def fill_form_endpoint():
 
     # Return base64-encoded PDF + metadata
     pdf_b64 = base64.b64encode(pdf_bytes).decode("utf-8")
-    property_name = data.get("property_name", "listing").replace(" ", "_")
+    property_name = str(data.get("property_name") or "listing").replace(" ", "_")
 
     return jsonify({
         "success": True,
