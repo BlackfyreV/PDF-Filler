@@ -264,21 +264,22 @@ def fill_form_endpoint():
         return jsonify({"error": "Unauthorized"}), 401
 
     data = request.get_json(silent=True)
-if not data:
-    return jsonify({"error": "Request body must be JSON"}), 400
+    if not data:
+        return jsonify({"error": "Request body must be JSON"}), 400
 
-for k, v in list(data.items()):
-    if v is None:
-        data[k] = ""
+    # Convert null values → empty strings
+    for k, v in list(data.items()):
+        if v is None:
+            data[k] = ""
 
-try:
-    pdf_bytes, form_type = fill_form(data)
-except FileNotFoundError as e:
-    return jsonify({"error": str(e)}), 500
-except ValueError as e:
-    return jsonify({"error": str(e)}), 400
-except Exception as e:
-    return jsonify({"error": f"Unexpected error: {str(e)}"}), 500
+    try:
+        pdf_bytes, form_type = fill_form(data)
+    except FileNotFoundError as e:
+        return jsonify({"error": str(e)}), 500
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+    except Exception as e:
+        return jsonify({"error": f"Unexpected error: {str(e)}"}), 500
 
     # Return base64-encoded PDF + metadata
     pdf_b64 = base64.b64encode(pdf_bytes).decode("utf-8")
