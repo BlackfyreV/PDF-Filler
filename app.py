@@ -155,7 +155,7 @@ def fill_form(data):
     set_field(writer, "Listing Company", g("listing_company", ""))
     set_field(writer, "Agents",          g("agents", ""))
     set_field(writer, "Broker Notes",    g("broker_notes", ""))
-    set_field(writer, "Available SF",    g("available_sf", "") or g("building_sf", ""))
+    set_field(writer, "Available SF", g("available_sf", "") or g("building_sf", ""))
     set_field(writer, "Building SF",     g("building_sf", ""))
     set_field(writer, "APN",             g("apn", ""))
     set_field(writer, "Zoning",          g("zoning", ""))
