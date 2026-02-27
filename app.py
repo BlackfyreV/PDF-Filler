@@ -32,7 +32,7 @@ FORM_TEMPLATES = {
     "land-lease-sale":             "1.22-Land-For-Lease-For-Sale-Form.pdf",
 }
 
-TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
+TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "Templates")
 
 CHOICE_OPTIONS = {
     "Lease Type":         ["FSG", "Gross", "IG", "MG", "Net", "NNN"],
