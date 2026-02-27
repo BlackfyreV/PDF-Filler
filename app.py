@@ -18,18 +18,18 @@ API_KEY = os.environ.get("AIRCRE_API_KEY", "change-me-in-render-env-vars")
 
 # ── FORM TYPE → TEMPLATE FILENAME ────────────────────────────────────────────
 FORM_TEMPLATES = {
-    "industrial-lease":            "1_22-Industrial-For-Lease-Form.pdf",
-    "industrial-sale":             "1_22-Industrial-For-Sale-Form.pdf",
-    "industrial-sublease":         "1_22-Industrial-For-Sublease-Form.pdf",
-    "industrial-lease-sale":       "1_22-Industrial-For-Lease-For-Sale-Form.pdf",
-    "industrial-condo-lease":      "1_22-Industrial-Condo-For-Lease-Form.pdf",
-    "industrial-condo-sale":       "1_22-Industrial-Condo-For-Sale-Form.pdf",
-    "industrial-condo-sublease":   "1_22-Industrial-Condo-For-Sublease-Form.pdf",
-    "industrial-condo-lease-sale": "1_22-Industrial-Condo-For-Lease-For-Sale-Form.pdf",
-    "land-lease":                  "1_22-Land-For-Lease-Form.pdf",
-    "land-sale":                   "1_22-Land-For-Sale-Form.pdf",
-    "land-sublease":               "1_22-Land-For-Sublease-Form.pdf",
-    "land-lease-sale":             "1_22-Land-For-Lease-For-Sale-Form.pdf",
+    "industrial-lease":            "1.22-Industrial-For-Lease-Form.pdf",
+    "industrial-sale":             "1.22-Industrial-For-Sale-Form.pdf",
+    "industrial-sublease":         "1.22-Industrial-For-Sublease-Form.pdf",
+    "industrial-lease-sale":       "1.22-Industrial-For-Lease-For-Sale-Form.pdf",
+    "industrial-condo-lease":      "1.22-Industrial-Condo-For-Lease-Form.pdf",
+    "industrial-condo-sale":       "1.22-Industrial-Condo-For-Sale-Form.pdf",
+    "industrial-condo-sublease":   "1.22-Industrial-Condo-For-Sublease-Form.pdf",
+    "industrial-condo-lease-sale": "1.22-Industrial-Condo-For-Lease-For-Sale-Form.pdf",
+    "land-lease":                  "1.22-Land-For-Lease-Form.pdf",
+    "land-sale":                   "1.22-Land-For-Sale-Form.pdf",
+    "land-sublease":               "1.22-Land-For-Sublease-Form.pdf",
+    "land-lease-sale":             "1.22-Land-For-Lease-For-Sale-Form.pdf",
 }
 
 TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
