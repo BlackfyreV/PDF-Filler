@@ -292,3 +292,18 @@ def fill_form_endpoint():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
+@app.route("/debug-templates", methods=["GET"])
+def debug_templates():
+    try:
+        files = sorted(os.listdir(TEMPLATES_DIR))
+    except Exception as e:
+        return jsonify({
+            "templates_dir": TEMPLATES_DIR,
+            "error": str(e),
+        }), 500
+
+    return jsonify({
+        "templates_dir": TEMPLATES_DIR,
+        "files": files,
+    })
