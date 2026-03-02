@@ -190,24 +190,24 @@ def fill_form(data):
         # Parking calculation
         parking_spaces = g("parking_spaces", "")
         parking_ratio = g("parking_ratio", "")
-        building_sf = g("building_sf", "") or g("available_sf", "")
-            
-        if parking_spaces and not parking_ratio and building_sf:
+        building_sf_val = g("building_sf", "") or g("available_sf", "")
+
+        if parking_spaces and not parking_ratio and building_sf_val:
             try:
-                ratio = float(str(parking_spaces).replace(",", "")) / (float(str(building_sf).replace(",", "")) / 1000)
+                ratio = float(str(parking_spaces).replace(",", "")) / (float(str(building_sf_val).replace(",", "")) / 1000)
                 parking_ratio = f"{ratio:.2f}"
             except:
                 pass
 
-        if parking_ratio and not parking_spaces and building_sf:
+        if parking_ratio and not parking_spaces and building_sf_val:
             try:
-                spaces = round(float(str(parking_ratio)) * (float(str(building_sf).replace(",", "")) / 1000))
-                 parking_spaces = str(spaces)
-             except:
-                 pass
+                spaces = round(float(str(parking_ratio)) * (float(str(building_sf_val).replace(",", "")) / 1000))
+                parking_spaces = str(spaces)
+            except:
+                pass
 
         set_field(writer, "Parking Spaces", parking_spaces)
-        set_field(writer, "Parking Ratio", parking_ratio)
+        set_field(writer, "Parking Ratio",  parking_ratio)
         set_field(writer, "Volts",                g("volts", ""))
         set_field(writer, "Amps",                 g("amps", ""))
         set_field(writer, "Taxes",                g("taxes", ""))
